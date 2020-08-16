@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .bg {
+            width: 800px;
+            height: 600px;
+            position: relative;
+            background: url('images/sky.png');
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .score{
+            position: absolute;
+            right: 50px;
+            top:50px;
+            z-index: 20;
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            background-color: #fff;
+            color: #f00;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="score">0</div>
+    </div>
+
+    <script>
+        /* 思路分析
+        1 创建小鸟
+        2 让小鸟横向移动
+        3 让小鸟纵向移动
+        4 创建管道
+        5 让管道移动
+        5 碰到结束游戏 */
+
+        var wrapper = document.querySelector('.wrapper');
+        var bg = document.querySelector('.bg');
+        var score_ele = document.querySelector('.score');
+        var score = 0;
+
+        // 1 创建小鸟
+        var birdElement = document.createElement('div');
+        birdElement.style.background = 'url(images/birds.png) no-repeat -10px -10px';
+        birdElement.style.width = 36 + 'px';
+        birdElement.style.height = 30 + 'px';
+        birdElement.style.position = 'absolute';
+        birdElement.style.top = 100 + 'px';
+        birdElement.style.left = 100 + 'px';
+        bg.appendChild(birdElement);
+
+
+        // 2 让小鸟横向移动(其实是背景在向左运动)
+        // 动画效果（定时器 + 移动）
+        var running = true;
+        var timerId1;
+        timerId1 = setInterval(function () {
+            if (running) {
+                var speedBg = (parseInt(bg.style.backgroundPositionX) || 0) - 1;
+                bg.style.backgroundPositionX = speedBg + 'px';
+            }
+
+        }, 30);
+
+
+        // 3 让小鸟纵向移动 
+        // 3.1 小鸟自由落体
+        var timerId2;
+        var timerId3;
+        var speedBird = 0;
+        var birdY = parseInt(birdElement.style.top);
+        timerId2 = setInterval(function () {
+            speedBird += .2;
+            birdY += speedBird;
+            if (running) {
+                if (birdY >= 570) {
+                    birdY = bg.offsetHeight - birdElement.offsetHeight;
+                    running = false;
+                    // clearInterval(timerId1);
+                    // clearInterval(timerId2);
+                    // clearInterval(timerId3);
+                    stopLoop();
+                }
+                if (birdY <= 0) {
+                    birdY = 0;
+                    running = false;
+                    // clearInterval(timerId1);
+                    // clearInterval(timerId2);
+                    // clearInterval(timerId3);
+                    stopLoop();
+                }
+                birdElement.style.top = birdY + 'px';
+            } else {
+                // clearInterval(timerId1); //小鸟停止运动，背景图移动停止
+                // clearInterval(timerId2);
+                // clearInterval(timerId3);
+                stopLoop();
+
+            }
+        }, 30);
+
+        // 3.2 点击文档 小鸟向上移动
+        window.onkeyup = function (e) {
+            // speedBird -= 3;
+            if(e.keyCode == 32){
+                speedBird -= 2;
+            }
+
+        }
+
+
+        // 4 创建管道
+        function createPipe(tag, position) {
+            //上管道高度 200 - 300   上下管道之间的高度为200
+            var upHeight = 200 + Math.floor(100 * Math.random() + 1);
+            // console.log(upHeight);
+            var downHeight = 600 - upHeight - 200;
+            // console.log(downHeight);
+            var downPipeTop = upHeight + 200;
+            // console.log(downPipeTop);
+
+
+
+            //上管道
+            var upPipe = document.createElement('div');
+            upPipe.style.background = 'url(images/pipe2.png) no-repeat center bottom';
+            upPipe.style.width = 52 + 'px';
+            upPipe.style.height = upHeight + 'px';
+            upPipe.style.position = 'absolute';
+            upPipe.style.top = 0;
+            upPipe.style.left = position + 'px';
+            bg.appendChild(upPipe);
+
+            //下管道
+            var downPipe = document.createElement('div');
+            downPipe.style.background = 'url(images/pipe1.png) no-repeat center top';
+            downPipe.style.width = 52 + 'px';
+            downPipe.style.height = downHeight + 'px';
+            downPipe.style.position = 'absolute';
+            downPipe.style.top = downPipeTop + 'px';
+            downPipe.style.left = position + 'px';
+            bg.appendChild(downPipe);
+
+
+            // 5 让管道移动
+            timerId3 = setInterval(function () {
+                if (running) {
+                    position -= 2;
+                    if (position < -52) {
+                        position = 800;
+                    }
+                    if(position == 84){ // 计算分数
+                        // console.log(tag)
+                        score++;
+                        // console.log(score)
+                    }
+                    upPipe.style.left = position + 'px';
+                    downPipe.style.left = position + 'px';
+
+
+
+                    // 6 碰到管道结束游戏
+                    var upCHeck = birdElement.offsetLeft + birdElement.offsetWidth >= position && birdElement.offsetLeft <= position+52
+                                    && birdElement.offsetTop <= upHeight;
+                    var downCheck = birdElement.offsetLeft + birdElement.offsetWidth >= position&& birdElement.offsetLeft <= position+52
+                                 && birdElement.offsetTop + birdElement.offsetHeight >= downHeight;
+                    if(upCHeck && downCheck){
+                        running = false;
+                        stopLoop();
+                    }
+
+                }
+            }, 30);
+        }
+
+        function stopLoop(){
+            clearInterval(timerId1);
+            clearInterval(timerId2);
+            clearInterval(timerId3);
+            cancelAnimationFrame(score_anime);
+        }
+
+        var score_anime = '';
+        function countScore(){
+            console.log(222)
+            score_ele.innerText = score;
+            score_anime = requestAnimationFrame(countScore)
+        }
+        score_anime = requestAnimationFrame(countScore)
+
+
+        createPipe('pipe1',400);
+        createPipe('pipe2',600);
+        createPipe('pipe3',800);
+        createPipe('pipe4',1000);
+    </script>
+</body>
+
+</html>

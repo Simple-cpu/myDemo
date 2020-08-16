@@ -1,0 +1,33 @@
+#grid{
+    margin: 0 auto;
+}
+
+.blocks{
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.blocks:hover{
+    background-color: #0af;
+}
+
+#bar {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.bar {
+    height: 25px;
+    width: 150px;
+    line-height: 25px;
+    display: inline-block;
+    border: solid 1px #000;
+    margin-left: 20px;
+    margin-right: 20px;
+}

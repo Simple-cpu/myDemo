@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/lib/bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>编辑学生</h1>
+        </div>
+
+        
+        <form action="/student/edit" method="POST" role="form">
+
+            <!-- 用户看不到，但需要提交到客户端 -->
+            <input type="hidden" name="id" value="{{ student.id }}">
+
+            <div class="form-group">
+                <label for="">姓名</label>
+                <input type="text" class="form-control" name="name" id="" placeholder="Input field" value="{{ student.name }}">
+            </div>
+            <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" id="male" value="0" alt="{{ student.gender }}">男
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" id="female" value="1">女
+                    </label>
+                </div>
+            
+            <div class="form-group">
+                <label for="">年龄</label>
+                <input type="text" class="form-control" name="age" id="" placeholder="Input field" value="{{ student.age }}">
+            </div>
+
+            <div class="form-group">
+                <label for="">爱好</label>
+                <input type="text" class="form-control" name="hobby" id="" placeholder="Input field" value="{{ student.hobby }}" >
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+   </div>
+    
+   <script>
+       // 处理男女单选框选中问题
+       var male = document.getElementById('male');
+       var female = document.getElementById('female');
+       if (male.alt === '男') {
+            male.checked = 'checked';
+       } else {
+            female.checked = 'checked';
+
+       }
+       
+   </script>
+</body>
+</html>

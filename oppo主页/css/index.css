@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #b2b2b2;
+    
+}
+ol,ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+
+.header, .nav, .banner, .star, .accessory, .world, .serve{
+    width: 100%;
+    height: 100%;
+}
+
+.com-width{
+    margin: 0 auto;
+    width: 1280px;
+    /* border: 1px solid #000; */
+}
+
+.top{
+    background-color: green;
+    height: 5px;
+}
+
+.header{
+    height: 28px;
+    background-color: #2d2d2d;
+}
+
+.header .xlwb{
+    width: 20px;
+    height: 17px;
+    background: url("../img/icons.png") no-repeat -47px -95px;
+    cursor: pointer;
+}
+
+.header .logo-left .txwb{
+    width: 20px;
+	height: 17px;
+    background: url("../img/icons.png") no-repeat -27px -92px;
+    cursor: pointer;
+}
+
+.header .logo-left .tel{
+    color: green;
+    cursor: pointer;
+}
+
+.header .logo-left div{
+    float: left;
+    margin: 5px 10px 0;
+}
+
+.header .logo-right ul{
+    margin-top: 5px;
+}
+
+.header .logo-right li{
+    display: inline-block;
+    border-right: 1px solid #b2b2b2;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header .logo-right a:hover{
+    color: green;
+}
+
+.header .logo-right span{
+    float: left;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url('../img/icons.png') no-repeat 0 -96px;
+}
+
+
+/* 导航栏  */
+.nav{
+    height: 90px;
+    background-color: #eee;
+}
+.nav ul{
+    padding-top: 30px;
+}
+.nav li{
+    display: inline-block;
+    padding-right: 30px;
+}
+.nav a{
+    color: #666;
+}
+.nav a:hover{
+    color: green;
+}
+
+
+
+/* 明星机型 */
+.star{
+    /* width: 1476px; */
+    height: 600px;
+    /* padding: 10px; */
+    background-color: #f2f2f2;
+}
+.star .star-top img{
+    display: block;
+    margin: 0 auto;
+}
+.star ul{
+    width: 1145px;
+    margin: 30px auto;
+
+}
+.star ul li{
+    display: inline-block;
+    width: 250px;
+    height: 475px;
+    margin-left: 10px;
+    border-bottom: 4px solid #dfdfdf;
+    transition: all 0.6s;
+}
+.star ul li:hover{
+    transform: translateY(-10px);
+    border-bottom: 4px solid green;
+}
+.star ul h3{
+    text-align: center;
+    color: #000;
+    padding-top: 10px;
+}
+.star ul p{
+    text-align: center;
+    padding-top: 10px;
+}
+.star ul .money{
+    color: green;
+    padding-bottom: 10px;
+}
+
+
+
+/* 精选配件 */
+.accessory{
+    height: 950px;
+    background-color: #f6f6f6;
+}
+.accessory .star-top{
+    width: 390px;
+    margin: 25px auto;
+}
+.accessory .star-left{
+    width: 560px;
+    height: 900px;
+    margin-left: 70px;
+}
+.accessory .star-left div{
+    float: left;
+    margin-right: 25px;
+    background-color: #fff;
+    border-bottom: 3px solid #eaeaea;
+    transition: all 0.6s;
+}
+.accessory .star-left div:hover{
+    border-bottom: 3px solid green;
+    transform: translateY(-10px);
+}
+.accessory .star-left div:last-child{
+    margin-top: 20px;
+}
+.accessory .star-left .detail{
+    /* margin-top: 45px ; */
+    width: 250px;
+    height: 250px;
+    color: #b2b2c3;
+    border: 3px solid #eaeaea;
+    margin-bottom: 20px;
+}
+.accessory  .star-left p{
+    width: 190px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 30px 0 0 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #cccccc;
+}
+.accessory  .star-left ul{
+    width: 180px;
+    margin-left: 50px;
+    /* padding-bottom: 10px; */
+}
+.accessory .star-left li{
+    width: 50px;
+    /* margin: 0 auto; */
+    margin: 20px 40px 5px 0; 
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+.accessory .star-left a:hover{
+    color: green;
+}
+.accessory .star-left .line{
+    width:  150px;
+    height: 0;
+    clear: both;
+    border-top: 1px solid #000;
+    margin: 10px auto;
+}
+.accessory .star-left p:last-child{
+    margin: 20px 0 0 30px;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+}
+.accessory .star-left p:hover{
+    color: green;
+}
+
+.accessory .star-right{
+    width: 550px;
+    height: 800px;
+}
+.accessory .star-right div{
+    float: left;
+    margin: 0 20px 20px 0;
+    border-bottom: 3px solid #eaeaea;
+    transition: all 0.6s;
+}
+.accessory .star-right div:hover{
+    transform: translateY(-10px);
+    border-bottom: 3px solid green;
+
+}
+
+
+
+/* 探索琥珀 */
+.world{
+    height: 670px;
+    background-color: #eaeaea;
+}
+.world .world-top{
+    text-align: center;
+}
+
+.world .world-left{
+    width: 630px;
+    margin-left: 120px;
+}
+.world .world-left img{
+    float: left;
+    margin: 15px 10px 5px 0;
+    border-bottom: 3px solid #eaeaea;
+    transition: all 0.6s;
+}
+.world .world-left img:hover{
+    transform: translateY(-10px);
+    border-bottom: 3px solid green;
+}
+
+.world .world-right{
+    width: 400px;
+    height: 530px;
+    background-color: #fff;
+    margin-top: 15px;
+}
+.world .world-right .title{
+    width: 197px;
+    height: 65px;
+    display: inline-block;
+    text-align: center;
+    line-height: 65px;
+}
+.world .world-right .title1{
+    border-top: 2px solid green;
+}
+.world .world-right .title2{
+    width: 198px;
+    background-color: #eaeaea;
+    border-top: 2px solid #eaeaea;
+
+
+}
+.world .world-right ul{
+    width: 400px;
+}
+.world .world-right li{
+    width: 380px;
+    height: 90px;
+    margin: 20px auto;
+    background-color: #eaeaea;
+    position: relative;
+}
+.world .world-right li img{
+    display: block;
+    float: left;
+}
+.world .world-right li p{
+    clear: both;
+    position: absolute;
+    left: 120px;
+    top: 25px;
+    margin-right: 20px;
+}
+
+
+
+/* 服务 */
+.serve{
+    height: 100px;
+}
+.serve ul{
+    /* width: 1405px; */
+    margin-left: 150px;
+}
+.serve ul li{
+    float: left;
+}
+.serve dl{
+    width: 200px;
+    height: 100px;
+    position: relative;
+}
+.serve dl dt{
+    width: 41px;
+    height: 41px;
+    background: url('../img/icons.png') no-repeat 0 -44px;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+}
+.serve dl .dd1{
+    font-weight: bold;
+    font-size: 12px;
+    color: #000;
+    position: absolute;
+    top: 30px;
+    left: 60px;
+}
+.serve dl .dd2{
+    position: absolute;
+    top: 45px;
+    left: 60px;
+}
+
+
+/* 售后服务 */
+.after-serve{
+    height: 200px;
+    margin-left: 280px;
+}
+/* .after-serve ul{
+    width: 1200px;
+} */
+.after-serve ul li{
+    width: 140px;
+    float: left;
+    text-align: center;
+    margin: 0 15px;
+}
+.after-serve ol li{
+    margin-top: 20px;
+    cursor: pointer;
+}
+.after-serve ol li:hover{
+    color: green;
+}
+.after-serve ol h4{
+    width: 140px;
+    height: 19px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    margin:  0 15px;
+}
+
+
+/* 页脚 */
+.footer{
+    height: 30px;
+    background-color: #2d2d2d;
+    position: relative;
+}
+.footer .footer-left{
+    width: 480px;
+    height: 30px;
+    float: left;
+}
+.footer .footer-left img{
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 200px;
+}
+.footer .footer-left p{
+    position: absolute;
+    top: 5px;
+    left: 350px;
+}
+
+.footer .footer-right{
+    width: 520px;
+    height: 30px;
+    float: right;
+}
+.footer .footer-right ul{
+    margin-left: 40px;
+}
+.footer .footer-right li{
+    cursor: pointer;
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+.footer .footer-right li:hover{
+    color: green;
+}

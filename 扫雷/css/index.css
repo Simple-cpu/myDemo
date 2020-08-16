@@ -1,0 +1,19 @@
+
+#grid {
+    margin: auto;  /* 让矩阵居中显示于页面 */
+}
+
+.blocks {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;   /* 让span以block方式显示 */
+    text-align: center;
+    border: solid 1px #000;
+    user-select: none;  /* 设置不可拖拽选中 */
+    cursor: pointer;  /* 设置鼠标停留样式 */
+}
+
+.blocks:hover {
+    background: #0af;  /* 鼠标停留时背景颜色变化 */
+}

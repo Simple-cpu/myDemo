@@ -1,0 +1,17 @@
+/* 设置每个单元格的宽高 */
+#grid{
+    margin: auto;
+    text-align: center;
+}
+
+.blocks{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: solid 1px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.blocks:hover{
+    background-color: cornflowerblue;
+}

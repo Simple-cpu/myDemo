@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+    <!-- 取消表格拖拽和取消默认点击右键生成右键菜单 -->
+<body ondragstart="return false" oncontextmenu="return false">
+    <div id="bar">
+        <span class="bar">剩余雷数：<label id="count"></label></span>
+        <span class="bar">时间：<label id="time">0</label>s</span>
+
+    </div>
+    <table id="grid"></table>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
